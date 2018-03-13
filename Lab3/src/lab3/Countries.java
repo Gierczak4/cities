@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 /**
@@ -49,6 +50,20 @@ public class Countries {
         } return c2;
     }
     
+    public Map<String,String> sortedByCountries(){
+       Map<String,String> map = new TreeMap();
+       map.putAll(countries);
+       return map;
+    }
+    
+    public Map<String,String> sortedByCapitals(){
+        Map<String,String> map = new TreeMap();
+        for(String key :countries.keySet()){
+            String value = countries.get(key);
+            map.put(value, key);
+        }
+        return map;
+    }
     
     
     @Override
@@ -63,5 +78,7 @@ public class Countries {
         System.out.println(c.countries());
         System.out.println(c.sortedCountries());
         System.out.println(c.sortedCapitals());
+        System.out.println(c.sortedByCountries());
+        System.out.println(c.sortedByCapitals());
     }
 }
